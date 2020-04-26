@@ -1,0 +1,40 @@
+<div class="container-fluid">
+  <div class="pull-right">
+    <button id="addMemberButton" class="btn btn-primary memberActionButton" (click)="goToAddMember()">
+      <i class="fa fa-user-plus" aria-hidden="true"> Add Member</i>
+    </button>
+    <button id="editMemberButton" class="btn btn-primary memberActionButton mx-3" (click)="editSelectedMember()"
+      [disabled]="!isAMemberSelected()">
+      <i class="fa fa-pencil" aria-hidden="true"> Edit Member</i>
+    </button>
+    <button id="deleteMemberButton" class="btn btn-primary memberActionButton" (click)="deleteSelectedMember()"
+      [disabled]="!isAMemberSelected()">
+      <i class="fa fa-trash" aria-hidden="true"> Delete Member</i>
+    </button>
+  </div>
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Member ID</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Job Title</th>
+          <th>Racing Team</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor='let member of members' (click)="selectRow(member)" class="selectionCursor"
+          [style.background-color]="getSelectionColor(member?.id)">
+          <td>{{member?.id}}</td>
+          <td>{{member?.firstName}}</td>
+          <td>{{member?.lastName}}</td>
+          <td>{{member?.jobTitle}}</td>
+          <td>{{member?.team}}</td>
+          <td>{{member?.status}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

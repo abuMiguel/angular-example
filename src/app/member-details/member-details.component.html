@@ -1,0 +1,54 @@
+<!-- <div class="container-fluid col-md-6">
+  <h3 class="text-center lead">{{ header }}</h3>
+  <br />
+  <form [formGroup]="memberForm" (ngSubmit)="onSubmit()">
+    <div>
+      <div class="row">
+        <input style="display:none" type="text" class="form-control" id="id" formControlName="id" />
+        <div class="col-md-6">
+          <input type="text" class="form-control" id="firstName" formControlName="firstName" placeholder="First Name" />
+          <div class="text-danger" *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)">
+            <div *ngIf="firstName.errors.required">First Name is required</div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <input type="text" class="form-control" id="lastName" formControlName="lastName" placeholder="Last Name" />
+          <div class="text-danger" *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)">
+            <div *ngIf="lastName.errors.required">Last Name is required</div>
+          </div>
+        </div>
+      </div>
+      <br />
+      <div class="row">
+        <div class="col-md-6">
+          <input type="text" class="form-control" id="jobTitle" formControlName="jobTitle" placeholder="Job Title" />
+          <div class="text-danger" *ngIf="jobTitle.invalid && (jobTitle.dirty || jobTitle.touched)">
+            <div *ngIf="jobTitle.errors.required">Job Title is required</div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <select id="team" class="col-md-6 custom-select" formControlName="team">
+            <option *ngFor="let team of teams" [ngValue]="team.teamName">{{ team.teamName }}</option>
+          </select>
+        </div>
+      </div>
+      <br />
+      <div class="form-group col-md-6">
+        <div class="row">
+          <label id="activeStatus" class="md-check lead">
+            <input type="radio" value="Active" name="status" formControlName="status" /> Active
+          </label>
+          <label class="md-check lead">
+            <input type="radio" value="Inactive" name="status" formControlName="status" /> Inactive
+          </label>
+        </div>
+      </div>
+    </div>
+    <button type="button" class="btn btn-primary pull-left" (click)="goBackToSummary()">
+      Back To Summary
+    </button>
+    <button type="submit" class="btn btn-primary pull-right" [disabled]="!memberForm.valid">
+      Save Member
+    </button>
+  </form>
+</div> -->
