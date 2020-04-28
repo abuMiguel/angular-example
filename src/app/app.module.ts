@@ -60,9 +60,9 @@ import { MainNavComponent } from './main-nav/main-nav.component';
 
 
 const routes: Routes = [
-  { path: '', component: AppComponent },
-  { path: 'app-root',   redirectTo: '/app-root', pathMatch: 'full' },
-  { path: '**', component: AppComponent }
+  { path: '', component: HomeComponent },
+  // { path: 'home',   redirectTo: '/home', pathMatch: 'full' },
+  { path: '**', component: HomeComponent }
 ];
 
 @NgModule({

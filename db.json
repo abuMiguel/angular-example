@@ -1,78 +1,50 @@
 {
-  "members": [
+  "users": [
     {
       "id": 1,
       "firstName": "John",
       "lastName": "Doe",
-      "jobTitle": "Driver",
-      "team": "Formula 1 - Car 77",
-      "status": "Active"
+      "title": "Manager"
     },
-    {
-      "id": 2,
-      "firstName": "Alex",
-      "lastName": "Sainz",
-      "jobTitle": "Driver",
-      "team": "Formula 1 - Car 8",
-      "status": "Inactive"
-    },
-    {
-      "id": 3,
-      "firstName": "Jeb",
-      "lastName": "Bush",
-      "jobTitle": "Reserve Driver",
-      "team": "Formula 2 - Car 54",
-      "status": "Active"
-    },
-    {
-      "id": 4,
-      "firstName": "Joe",
-      "lastName": "P",
-      "jobTitle": "Backup Driver",
-      "team": "World Rally Championship - Car 77",
-      "status": "Inactive"
-    }
-  ],
-  "teams": [
     {
       "id": 1,
-      "teamName": "Formula 1 - Car 77"
+      "firstName": "Joe",
+      "lastName": "Blow",
+      "title": "Supervisor"
+    },
+    {
+      "id": 1,
+      "firstName": "John",
+      "lastName": "Smith",
+      "title": "Doctor"
+    },
+    {
+      "id": 1,
+      "firstName": "Alex",
+      "lastName": "Johnson",
+      "title": "Mr"
+    }
+  ],
+  "selections": [
+    {
+      "id": 1,
+      "name": "value 1"
     },
     {
       "id": 2,
-      "teamName": "Formula 1 - Car 8"
+      "name": "value 2"
     },
     {
       "id": 3,
-      "teamName": "Formula 2 - Car 54"
+      "name": "value 3"
     },
     {
       "id": 4,
-      "teamName": "Formula 2 - Car 63"
+      "name": "value 4"
     },
     {
       "id": 5,
-      "teamName": "Deutsche Tourenwagen Masters - Car 117"
-    },
-    {
-      "id": 6,
-      "teamName": "Deutsche Tourenwagen Masters - Car 118"
-    },
-    {
-      "id": 7,
-      "teamName": "World Endurance Championship - Car 99"
-    },
-    {
-      "id": 8,
-      "teamName": "World Endurance Championship - Car 5"
-    },
-    {
-      "id": 9,
-      "teamName": "World Rally Championship - Car 77"
-    },
-    {
-      "id": 10,
-      "teamName": "World Rally Championship - Car 90"
+      "name": "value 5"
     }
   ]
 }

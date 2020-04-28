@@ -36,31 +36,31 @@ app.use(
   })
 );
 
-app.get('/api/members', (req, res) => {
-  request('http://localhost:3000/members', (err, response, body) => {
+app.get('/api/users', (req, res) => {
+  request('http://localhost:3000/users', (err, response, body) => {
     if (response.statusCode <= 500) {
       res.send(body);
     }
   });
 });
 
-app.get('/api/teams', (req, res) => {
-  request('http://localhost:3000/teams', (err, response, body) => {
+app.get('/api/selections', (req, res) => {
+  request('http://localhost:3000/selections', (err, response, body) => {
     if (response.statusCode <= 500) {
       res.send(body);
     }
   });
 });
 
-app.post('/api/addMember', hasBody, async (req, res, next) => {
+app.post('/api/addUser', hasBody, async (req, res, next) => {
 
-  let member = req.body;
-  if (!member.firstName || !member.lastName || !member.jobTitle || !member.team || !member.status) {
-    next(new Error("Unable to add member. Missing at least one of the parameters."));
+  let user = req.body;
+  if (!user.firstName || !user.lastName || !user.title) {
+    next(new Error("Unable to add user. Missing at least one of the parameters."));
   }
 
   try {
-    const response = await axios.post('http://localhost:3000/members', member);
+    const response = await axios.post('http://localhost:3000/users', user);
     res.sendStatus(response.status);
   }
   catch (e) {
@@ -68,15 +68,15 @@ app.post('/api/addMember', hasBody, async (req, res, next) => {
   }
 });
 
-app.post('/api/editMember', hasBody, async (req, res, next) => {
+app.post('/api/editUser', hasBody, async (req, res, next) => {
 
-  let member = req.body;
-  if (!member.firstName || !member.lastName || !member.jobTitle || !member.team || !member.status) {
-    next(new Error("Unable to edit member. Missing at least one of the parameters."));
+  let user = req.body;
+  if (!user.firstName || !user.lastName || !user.title) {
+    next(new Error("Unable to edit user. Missing at least one of the parameters."));
   }
 
   try {
-    const response = await axios.put(`http://localhost:3000/members/${member.id}`, member);
+    const response = await axios.put(`http://localhost:3000/user/${user.id}`, user);
     res.sendStatus(response.status);
   }
   catch (e) {
@@ -84,10 +84,10 @@ app.post('/api/editMember', hasBody, async (req, res, next) => {
   }
 });
 
-app.delete('/api/deleteMember/:id', async (req, res, next) => {
+app.delete('/api/deleteUser/:id', async (req, res, next) => {
   try {
     let id = req.params.id;
-    const response = await axios.delete(`http://localhost:3000/members/${id}`);
+    const response = await axios.delete(`http://localhost:3000/users/${id}`);
     res.sendStatus(response.status);
   }
   catch (e) {
