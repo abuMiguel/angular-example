@@ -1,12 +1,10 @@
-// @import '~@angular/material/theming';
-// @include mat-core();
-// $dark-primary: mat-palette($mat-blue-grey);
-// $dark-accent:  mat-palette($mat-amber, A200, A100, A400);
-// $dark-warn:    mat-palette($mat-deep-orange);
-// $dark-theme:   mat-dark-theme($dark-primary, $dark-accent, $dark-warn);
-// @include angular-material-theme($dark-theme);
+@import '~@angular/material/theming';
 @import '@angular/material/prebuilt-themes/indigo-pink.css';
 
+.mat-icon-button:hover {
+   background-color: mat-color($mat-light-theme-background, hover);
+ }
+ 
 html, body{
     height:100%;
     font:500 20px/32px Roboto, "Helvetica Neue", sans-serif;
@@ -14,4 +12,27 @@ html, body{
 
 body {
     margin:0;
+}
+
+.background-image {
+    background-image: linear-gradient(rgba(200, 200, 200, 0.8),rgba(200, 200, 200, 0.8)), url("~src/assets/hogs.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.large-background{
+    background-size: cover;
+}
+
+.medium-background{
+    background-size: cover;
+}
+
+.small-background{
+    background-size: cover;
+}
+
+.center{
+    margin: 0 auto;
+    text-align: center;
 }

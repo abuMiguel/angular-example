@@ -1,4 +1,8 @@
-<mat-sidenav-container class="sidenav-container">
+<mat-sidenav-container class="sidenav-container background-image"
+[ngClass]="
+{'small-background':(isHandset$ | async) === true,
+'medium-background':(isTablet$ | async) === true,
+'large-background':(isHandset$ | async) === false && (isTablet$ | async) === false}">
   <mat-sidenav #drawer class="sidenav" fixedInViewport="false" [ngClass]="{hidden: (isHandset$ | async) === false }"
     [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'"
     [(opened)]="drawerOpen">
@@ -10,7 +14,7 @@
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <mat-toolbar color="primary">
+    <mat-toolbar>
       <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle();"
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
@@ -18,9 +22,15 @@
       <span>angular-example</span>
       <span class="spacer"></span>
       <span [ngClass]="{hidden: (isHandset$ | async) === true}">
-        <a class="navLinks" href="#"><mat-icon color="accent">toys</mat-icon></a>
-        <a class="navLinks" href="#"><mat-icon color="accent">share</mat-icon></a>
-        <a class="navLinks" href="#"><mat-icon color="accent">code</mat-icon></a>
+        <button class="nav-link" mat-icon-button aria-label="Example icon button">
+          <mat-icon>toys</mat-icon>
+        </button>
+        <button class="nav-link" mat-icon-button aria-label="Example icon button">
+          <mat-icon>share</mat-icon>
+        </button>
+        <button class="nav-link" mat-icon-button aria-label="Example icon button">
+          <mat-icon>code</mat-icon>
+        </button>
       </span>
     </mat-toolbar>
     <ng-content></ng-content>

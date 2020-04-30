@@ -57,11 +57,12 @@ import { AppComponent } from './app.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { HomeComponent } from './home/home.component';
 import { MainNavComponent } from './main-nav/main-nav.component';
+import { FooterComponent } from './footer/footer.component';
+import { FeaturesComponent } from './features/features.component';
 
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  // { path: 'home',   redirectTo: '/home', pathMatch: 'full' },
   { path: '**', component: HomeComponent }
 ];
 
@@ -69,7 +70,9 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     HomeComponent,
-    MainNavComponent
+    MainNavComponent,
+    FooterComponent,
+    FeaturesComponent
   ],
   imports: [
     BrowserModule,
@@ -88,7 +91,9 @@ const routes: Routes = [
     MatButtonToggleModule,
     MatExpansionModule,
     MatDividerModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatCardModule,
+    MatGridListModule
   ],
   providers: [AppService, HttpClient],
   bootstrap: [AppComponent],

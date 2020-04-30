@@ -17,10 +17,16 @@ export class MainNavComponent {
       tap(() => this.drawerOpen == false),
       shareReplay()
     );
+  isTablet$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.TabletPortrait)
+    .pipe(
+      map(result => result.matches),
+      tap(() => this.drawerOpen == false),
+      shareReplay()
+    );
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  constructor(private breakpointObserver: BreakpointObserver) { }
 
-  drawerToggle(){
+  drawerToggle() {
     this.drawerOpen = !this.drawerOpen;
   }
 }
