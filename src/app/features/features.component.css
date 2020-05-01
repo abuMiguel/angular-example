@@ -1,11 +1,13 @@
 .cards {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 
 .card {
-    flex: 0 1 24%;
+    padding: 20px;
+    margin: 10px 0;
+    flex: 0 1 25%;
 }
 
 .features {

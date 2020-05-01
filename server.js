@@ -36,6 +36,7 @@ app.use(
   })
 );
 
+// Sample code for getting a list of users
 app.get('/api/users', (req, res) => {
   request('http://localhost:3000/users', (err, response, body) => {
     if (response.statusCode <= 500) {
@@ -44,6 +45,7 @@ app.get('/api/users', (req, res) => {
   });
 });
 
+// Sample code for getting a list of data
 app.get('/api/selections', (req, res) => {
   request('http://localhost:3000/selections', (err, response, body) => {
     if (response.statusCode <= 500) {
@@ -52,6 +54,7 @@ app.get('/api/selections', (req, res) => {
   });
 });
 
+// Sample code for adding a user
 app.post('/api/addUser', hasBody, async (req, res, next) => {
 
   let user = req.body;
@@ -68,6 +71,7 @@ app.post('/api/addUser', hasBody, async (req, res, next) => {
   }
 });
 
+// Sample code for editing a user
 app.post('/api/editUser', hasBody, async (req, res, next) => {
 
   let user = req.body;
@@ -84,6 +88,7 @@ app.post('/api/editUser', hasBody, async (req, res, next) => {
   }
 });
 
+// Sample code for deleting a user
 app.delete('/api/deleteUser/:id', async (req, res, next) => {
   try {
     let id = req.params.id;

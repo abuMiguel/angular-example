@@ -10,14 +10,10 @@ export class AuthGuardService implements CanActivate {
     constructor(public router: Router, public appService: AppService) { }
 
     canActivate(): boolean {
-        // let username: string = this.appService.username;
-        // if (!username) {
-        //     this.router.navigateByUrl('/login');
-        //     return false;
-        // }
-        // else {
-        //     return true;
-        // }
+        // Useful for protecting your routes when needed
+        // Add this in app.module routing with RunGuardsAndResolvers
+        // return true if the route should be accessible, otherwise false
+
         return true;
     }
 }
