@@ -2,17 +2,15 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const helmet = require('helmet');
-var hsts = require('hsts');
+const hsts = require('hsts');
 const path = require('path');
-var xssFilter = require('x-xss-protection');
-var nosniff = require('dont-sniff-mimetype');
-const request = require('request');
-const axios = require('axios')
+const xssFilter = require('x-xss-protection');
+const nosniff = require('dont-sniff-mimetype');
 
 const app = express();
+const port = 3000;
 
 app.use(cors());
-app.use(express.static('assets'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.disable('x-powered-by');
@@ -30,82 +28,15 @@ app.use(
   })
 );
 
-app.use(
-  express.static(path.join(__dirname, 'dist/angular-example'), {
-    etag: false
-  })
-);
+app.use(express.static(path.join(__dirname, 'public')));
 
-// Sample code for getting a list of users
-app.get('/api/users', (req, res) => {
-  request('http://localhost:3000/users', (err, response, body) => {
-    if (response.statusCode <= 500) {
-      res.send(body);
-    }
-  });
-});
+// Setup Routes
+const users = require('./routes/users');
+app.use('/users', users);
 
-// Sample code for getting a list of data
-app.get('/api/selections', (req, res) => {
-  request('http://localhost:3000/selections', (err, response, body) => {
-    if (response.statusCode <= 500) {
-      res.send(body);
-    }
-  });
-});
-
-// Sample code for adding a user
-app.post('/api/addUser', hasBody, async (req, res, next) => {
-
-  let user = req.body;
-  if (!user.firstName || !user.lastName || !user.title) {
-    next(new Error("Unable to add user. Missing at least one of the parameters."));
-  }
-
-  try {
-    const response = await axios.post('http://localhost:3000/users', user);
-    res.sendStatus(response.status);
-  }
-  catch (e) {
-    next(e);
-  }
-});
-
-// Sample code for editing a user
-app.post('/api/editUser', hasBody, async (req, res, next) => {
-
-  let user = req.body;
-  if (!user.firstName || !user.lastName || !user.title) {
-    next(new Error("Unable to edit user. Missing at least one of the parameters."));
-  }
-
-  try {
-    const response = await axios.put(`http://localhost:3000/user/${user.id}`, user);
-    res.sendStatus(response.status);
-  }
-  catch (e) {
-    next(e);
-  }
-});
-
-// Sample code for deleting a user
-app.delete('/api/deleteUser/:id', async (req, res, next) => {
-  try {
-    let id = req.params.id;
-    const response = await axios.delete(`http://localhost:3000/users/${id}`);
-    res.sendStatus(response.status);
-  }
-  catch (e) {
-    next(e);
-  }
-});
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'dist/angular-example/index.html'));
-});
-
-app.listen('8000', () => {
-  console.log('Server starting...');
+  res.sendFile(path.join(__dirname, 'public/index.html'));
 });
 
 app.use(async function (err, req, res, next) {
@@ -119,3 +50,7 @@ function hasBody(req, res, next) {
     return res.send(422);
   }
 }
+
+app.listen(port, () => {
+  console.log(`Server started on port ${port}`);
+});
