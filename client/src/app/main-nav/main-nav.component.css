@@ -1,0 +1,37 @@
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 200px;
+}
+
+.sidenav .mat-toolbar {
+  
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.mat-toolbar{
+  background: transparent;
+}
+
+.hidden {
+  display:none;
+}
+
+.spacer{
+  flex: 1 1 auto;
+}
+
+.nav-link{
+  margin: 0 20px;
+}
+
+.mat-toolbar-row, .mat-toolbar-single-row {
+  height: 50px;
+}
